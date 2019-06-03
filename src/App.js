@@ -1,26 +1,66 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Router from "./Router";
+import { NavLink, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { LinkContainer } from "react-router-bootstrap";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const Navigation = ({ cart }) => (
+  //holding how many items in cart(i) here on navlink
+  <nav>
+    <ul className="top-menu ">
+      <div class="row btn-group">
+        <li>
+          <NavLink to="/">
+            <button id="home" type="button" class="btn btn-primary">
+              Home
+            </button>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/cart">
+            <button id="cart" type="button" class="btn btn-primary ">
+              Cart(
+              {cart.reduce((acc, item) => {
+                return acc + item.quantity;
+              }, 0)}
+              )
+            </button>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/checkout">
+            <button id="checkout" type="button" class="btn btn-primary">
+              Check Out
+            </button>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/order/:id">
+            <button id="order" type="button" class="btn btn-primary">
+              Orders
+            </button>
+          </NavLink>
+        </li>
+      </div>
+    </ul>
+  </nav>
+);
+
+class App extends Component {
+  render() {
+    return (
+      <div className="page-container">
+        <Navigation {...this.props} />
+        <Router />
+      </div>
+    );
+  }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    cart: state.cart
+  };
+}
+
+export default withRouter(connect(mapStateToProps)(App));

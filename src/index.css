@@ -1,13 +1,107 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  width: 100%;
+  background-color: bisque;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.page-container {
+  margin: 0px auto;
+  width: 800px;
+  padding: 80px;
+  position: relative;
+}
+
+.product-listing {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.product-listing .product-list-item {
+  padding: 10px 30px;
+  width: 200px;
+}
+
+ul.top-menu {
+  position: absolute;
+  right: 95px;
+  top: 44px;
+  margin: 0;
+}
+
+ul.top-menu li {
+  display: inline-block;
+}
+
+ul.top-menu li {
+  display: inline-block;
+}
+
+ul.top-menu li:nth-child(1):before {
+  content: "";
+  margin: 0;
+}
+
+#home,
+#cart,
+#cart1,
+#checkout,
+#order {
+  color: black;
+  font-family: "Courier New", Courier, monospace;
+  margin: 0 1px;
+}
+
+.order,
+.cart {
+  background-color: white;
+}
+
+.form-control:focus {
+  border-color: #5cb85c;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  background-color: rgb(190, 183, 183);
+}
+
+.homepage,
+.order {
+  background-color: rgb(255, 255, 255);
+}
+.cartpage,
+.checkout {
+  background-color: rgb(233, 186, 68);
+}
+
+.cartpage-text,
+.homepage-text,
+.order-text,
+.checkout-text {
+  text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: rgb(94, 90, 90);
+}
+
+.text-center {
+  background-color: rgb(212, 200, 23);
+}
+
+#mouse_over {
+  opacity: 0;
+}
+#mouse_over:hover {
+  opacity: 1;
+  border: 5px solid whitesmoke;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: rgb(121, 121, 177);
+  background-color: aliceblue;
+  margin-top: 10px;
+}
+
+#price {
+  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 18px;
 }
